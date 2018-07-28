@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HeartAnimation.h"
+#import "AwesomeView.h"
 
 
 
@@ -30,12 +30,9 @@ static NSInteger count = 0;
 
 
 -(void)handleTap:(UITapGestureRecognizer *)tap{
-    
-    NSLog(@"触发了%ld次",++count);
-    
-    [[HeartAnimation sharedManager] createHeartWithTap:tap];
-    
-    
+    CGPoint point = [tap locationInView:[tap view]];
+    AwesomeView *awe = [[AwesomeView alloc]initWithFrame:CGRectMake(point.x-40, point.y-40, 80, 80)];
+    [self.view addSubview:awe];
 }
 
 
